@@ -17,7 +17,7 @@ const mediaQueryConfig = {
   lg: matchMedia('screen and (min-width: 1025px) and (max-width: 1200px)')
 }
 
-// When using in riot tags ([see below](#use-as-a-riot-mixin))
+// When using in riot tags (SEE `Use as a riot-mixin` below)
 const viewportConfig = {
   mobile: 'sm',
   tablet: 'md',
