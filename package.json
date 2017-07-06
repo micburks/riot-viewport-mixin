@@ -1,0 +1,21 @@
+{
+  "name": "riot-viewport-mixin",
+  "version": "1.0.0",
+  "description": "Mixin for updating riot tags when viewport changes",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micburks/riot-viewport-mixin.git"
+  },
+  "keywords": [
+    "riot",
+    "viewport",
+    "mixin"
+  ],
+  "author": "Mickey Burks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micburks/riot-viewport-mixin/issues"
+  },
+  "homepage": "https://github.com/micburks/riot-viewport-mixin#readme"
+}
