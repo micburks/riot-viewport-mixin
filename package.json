@@ -1,6 +1,6 @@
 {
   "name": "riot-viewport-mixin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mixin for updating riot tags when viewport changes",
   "main": "index.js",
   "repository": {
