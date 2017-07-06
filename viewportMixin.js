@@ -1,5 +1,7 @@
 import viewport from './viewport'
 
+const { viewports } = viewport.config()
+
 function createMixin (variable, size, callback) {
   return {
     init () {
@@ -26,11 +28,10 @@ function createMixin (variable, size, callback) {
   }
 }
 
-export const viewportMixin = {
-  mobile (callback) {
-    return createMixin('mobile', 'sm', callback)
-  },
-  tablet (callback) {
-    return createMixin('tablet', 'md', callback)
-  }
-}
+export const viewportMixin = Object.keys(viewports)
+  .reduce((acc, viewport) => {
+    acc[viewport] = callback => {
+      return createMixin(viewport, viewports[viewport], callback)
+    }
+    return acc
+  }, {})

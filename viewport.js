@@ -1,4 +1,5 @@
 let sizes = {}
+let viewports = {}
 
 export default {
   // Add callback to a size change
@@ -27,7 +28,12 @@ export default {
   },
 
   // Set config object
-  config (config) {
-    sizes = config
+  config (mediaQueryConfig, viewportConfig) {
+    if (!arguments.length) {
+      return { sizes, viewports }
+    } else {
+      sizes = mediaQueryConfig
+      viewports = viewportConfig
+    }
   }
 }
