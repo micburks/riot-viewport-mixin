@@ -47,7 +47,7 @@ viewport.current() // => 'sm'
 
 ## Use as a riot mixin
 
-``` javascript
+``` htmlmixed
 <my-tag>
 
   <!--
