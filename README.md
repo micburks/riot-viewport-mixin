@@ -9,7 +9,7 @@ Updates the riot tag when the results of a media query change
 ## Configure and use in javascript
 
 ``` javascript
-import viewport from 'riot-viewport-mixin'
+import { viewport } from 'riot-viewport-mixin'
 
 const mediaQueryConfig = {
   sm: matchMedia('screen and (max-width: 767px)'),
@@ -58,7 +58,7 @@ viewport.current() // => 'sm'
   <Hidden-Mega-List if={ mobile } />
 
   <script>
-    import viewportMixin from 'riot-viewport-mixin'
+    import { viewportMixin } from 'riot-viewport-mixin'
 
     this.mixin(viewportMixin.mobile())
     // this.mobile is set according to the media query
