@@ -1,6 +1,6 @@
 {
   "name": "riot-viewport-mixin",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Mixin for updating riot tags when viewport changes",
   "main": "bundle.js",
   "scripts": {
