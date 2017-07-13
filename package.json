@@ -4,7 +4,8 @@
   "description": "Mixin for updating riot tags when viewport changes",
   "main": "bundle.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,9 @@
   "devDependencies": {
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-latest": "^6.24.1",
-    "rollup": "^0.43.0",
-    "rollup-plugin-babel": "^2.7.1"
+    "rollup": "^0.43.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-watch": "^4.3.1"
   },
   "files": [
     "bundle.js"
