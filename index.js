@@ -1,6 +1,5 @@
 let sizes = {}
 let viewports = {}
-const viewportMixin = {}
 
 const viewport = {
   // Add callback to a size change
@@ -20,46 +19,38 @@ const viewport = {
 
   // Find if current viewport does not match a size
   isNot (size) {
-    console.log(sizes)
     return !sizes[size].matches
   },
 
   // Return the current viewport size
   current () {
     return Object.keys(sizes).find(size => this.is(size))
-  },
-
-  // Set config object
-  config (mediaQueryConfig, viewportConfig) {
-    if (!arguments.length) {
-      return { sizes, viewports }
-    } else {
-      sizes = mediaQueryConfig
-      viewports = viewportConfig
-
-      Object.keys(viewports)
-        .forEach(viewport => {
-          viewportMixin[viewport] = callback => {
-            return createMixin(viewport, viewports[viewport], callback)
-          }
-        })
-    }
   }
 }
 
-function createMixin (variable, size, callback) {
+const viewportMixin = function (viewportVariable) {
+  if (arguments.length === 1 || typeof arguments[1] === 'function') {
+    // individual tag
+    return createMixin(viewportVariable, arguments[1])
+  } else {
+    // shared mixin
+    sizes[viewportVariable] = arguments[1]
+    return createMixin(viewportVariable, null)
+  }
+}
+
+function createMixin (size, callback) {
   return {
     init () {
-      this[variable] = viewport.is(size)
+      this[size] = viewport.is(size)
+
       if (callback) {
         callback()
       }
 
-      callback = callback || (() => this.update())
-
       const sizeCallback = mql => {
-        this[variable] = mql.matches
-        callback()
+        this[size] = mql.matches
+        callback ? callback() : this.update()
       }
 
       this.on('mount', () => {
