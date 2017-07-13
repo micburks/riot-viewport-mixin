@@ -25,15 +25,28 @@ const viewport = {
   // Return the current viewport size
   current () {
     return Object.keys(sizes).find(size => this.is(size))
+  },
+
+  // Set config object
+  config (mediaQueryConfig) {
+    if (!arguments.length) {
+      return { sizes, viewports }
+    } else {
+      sizes = mediaQueryConfig
+      viewports = viewportConfig
+    }
   }
 }
 
 const viewportMixin = function (viewportVariable) {
   if (arguments.length === 1 || typeof arguments[1] === 'function') {
-    // individual tag
+    // viewportMixin('mobile') or
+    // viewportMixin('mobile', callback)
+    // create mixin using previously configured media queries
     return createMixin(viewportVariable, arguments[1])
   } else {
-    // shared mixin
+    // viewportMixin('mobile', '(min-width: 968px)')
+    // set new query and create mixin
     sizes[viewportVariable] = arguments[1]
     return createMixin(viewportVariable, null)
   }
